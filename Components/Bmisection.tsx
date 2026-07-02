@@ -126,7 +126,9 @@ export default function BMISection() {
         </div>
 
         {/* Main Card */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div
+          className={`${ptSans.className} w-full grid grid-cols-1 lg:grid-cols-2 gap-6`}
+        >
           {/* ── Left: Inputs ── */}
           <div
             className={`${ptSans.className} bg-inherit rounded-2xl p-8 flex flex-col gap-6`}
