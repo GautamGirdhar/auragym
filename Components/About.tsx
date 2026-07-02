@@ -3,6 +3,21 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Barlow } from "next/font/google";
+import { PT_Sans } from "next/font/google";
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-barlow",
+  display: "swap",
+});
+
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-pt-sans",
+});
 
 const galleryImages = [
   {
@@ -66,22 +81,28 @@ export default function AboutSection() {
 
   return (
     <>
-      <section className="w-full  bg-black py-20 px-6 md:px-12 lg:px-20">
+      <section className="w-full  bg-black/20 py-20 px-6 md:px-12 lg:px-20">
         <div className="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-14 items-start">
           {/* ── Left: Text Content ── */}
           <div className="flex flex-col gap-6 lg:sticky lg:top-24">
-            <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+            <h2
+              className={`${barlow.className} text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight`}
+            >
               YOUR FITNESS GOALS,
               <br />
               OUR COMMITMENT.
             </h2>
 
-            <p className="text-primary text-lg md:text-xl font-extrabold uppercase tracking-wide leading-snug">
+            <h3
+              className={`${barlow.className} text-primary text-lg md:text-xl font-extrabold uppercase tracking-wide leading-snug`}
+            >
               Experience premium fitness, expert coaching, and world-class
               equipment at one of the best gyms in Ludhiana.
-            </p>
+            </h3>
 
-            <p className="text-foreground text-sm md:text-xl leading-relaxed">
+            <p
+              className={`${ptSans.className} text-foreground text-sm md:text-xl leading-relaxed`}
+            >
               Welcome to Aura Gym, a premium fitness centre in Ludhiana built
               for individuals who are serious about transforming their health
               and lifestyle. Whether your goal is weight loss, muscle building,

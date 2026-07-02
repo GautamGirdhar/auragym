@@ -1,5 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PT_Sans } from "next/font/google";
+import { Barlow } from "next/font/google";
+
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-pt-sans",
+});
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-barlow",
+  display: "swap",
+});
 
 const locations = [
   {
@@ -27,17 +42,23 @@ const locations = [
 
 export default function LocationsSection() {
   return (
-    <section className="w-full bg-background py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
+    <section className="w-full bg-background py-20 px-6 md:px-12 lg:px-30">
+      <div className="max-w-full mx-auto flex flex-col items-center gap-10">
         {/* Heading */}
         <div className="text-center flex flex-col gap-3">
-          <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-foreground">
+          <h2
+            className={`${barlow.className} text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-foreground`}
+          >
             Our Gym Locations
           </h2>
-          <p className="text-primary text-lg md:text-3xl font-extrabold uppercase tracking-widest">
+          <p
+            className={`${barlow.className} text-primary text-lg md:text-3xl font-extrabold uppercase tracking-widest`}
+          >
             3 Great Locations, 1 Gym Family
           </p>
-          <p className="text-foreground text-sm md:text-xl max-w-5xl mt-1 leading-relaxed">
+          <p
+            className={`${ptSans.className} text-foreground text-sm md:text-xl max-w-7xl mt-1 leading-relaxed`}
+          >
             Aura Gym is more than a gym — it&apos;s a fitness family. Join us at
             either location for world-class training, community, and lasting
             results. Discover your new home gym today. Click a location to learn

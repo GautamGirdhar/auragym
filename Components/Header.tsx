@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { PT_Sans } from "next/font/google";
 import { Barlow } from "next/font/google";
+import Image from "next/image";
 
 const ptSans = PT_Sans({
   subsets: ["latin"],
@@ -43,8 +44,7 @@ const navLinks: NavLink[] = [
     href: "/gym-info",
     dropdown: [
       { label: "Membership Plans", href: "/gym-info/membership" },
-      { label: "Hours", href: "/gym-info/hours" },
-      { label: "FAQs", href: "/gym-info/faqs" },
+      { label: "About", href: "/gym-info/faqs" },
     ],
   },
   { label: "Contact Us", href: "/contact" },
@@ -60,11 +60,14 @@ export default function Header() {
       <div className="mx-auto flex max-w-full items-center justify-between px-8 py-8 md:px-24 md:py-10">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <div className="leading-tight">
-            <p className="text-2xl font-semibold tracking-wide text-foreground">
-              Aura<span className="text-primary font-bold"> Gym</span>
-            </p>
-          </div>
+          <Image
+            src="/auralogo.png" // public folder me rakha hua logo
+            alt="Aura Gym Logo"
+            width={170}
+            height={60}
+            priority
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
