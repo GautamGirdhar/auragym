@@ -4,6 +4,21 @@ import { ChevronDown, Menu, X, Dumbbell } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { PT_Sans } from "next/font/google";
+import { Barlow } from "next/font/google";
+
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-pt-sans",
+});
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-barlow",
+  display: "swap",
+});
 
 interface NavLink {
   label: string;
@@ -42,24 +57,20 @@ export default function Header() {
 
   return (
     <header className="w-full bg-header fixed top-0 left-0 z-50">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
+      <div className="mx-auto flex max-w-full items-center justify-between px-8 py-8 md:px-24 md:py-10">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <div className="flex h-11 w-11 font-bold items-center justify-center rounded-full border border-primary text-primary">
-            <Dumbbell className="h-5 w-5" strokeWidth={2.5} />
-          </div>
           <div className="leading-tight">
-            <p className="font-serif text-2xl font-semibold tracking-wide text-foreground">
+            <p className="text-2xl font-semibold tracking-wide text-foreground">
               Aura<span className="text-primary font-bold"> Gym</span>
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Ludhiana
             </p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav
+          className={`${ptSans.className} hidden lg:flex items-center gap-12 tracking-wide`}
+        >
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -70,7 +81,7 @@ export default function Header() {
               {link.dropdown ? (
                 <>
                   <button
-                    className={`flex items-center gap-1 text-xl font-bold transition-colors ${
+                    className={`flex items-center gap-1 text-xl font-medium transition-colors ${
                       pathname.startsWith(link.href)
                         ? "text-primary"
                         : "text-foreground hover:text-primary"
@@ -101,7 +112,7 @@ export default function Header() {
               ) : (
                 <Link
                   href={link.href}
-                  className={`text-xl font-bold transition-colors ${
+                  className={`text-xl font-medium transition-colors ${
                     pathname === link.href
                       ? "text-primary"
                       : "text-foreground hover:text-primary"
@@ -116,7 +127,9 @@ export default function Header() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <Button className="rounded-full bg-primary px-6 py-5 text-xl font-normal tracking-wide text-foreground hover:bg-primary">
+          <Button
+            className={`${barlow.className} rounded-full bg-primary px-15 py-7 text-lg font-medium tracking-wide text-foreground hover:bg-primary`}
+          >
             Visiting? Drop In
           </Button>
         </div>

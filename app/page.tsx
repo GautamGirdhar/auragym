@@ -8,10 +8,12 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Hero />
-      <AboutSection />
-      <LocationsSection />
-      <BMISection />
+      <main className="pt-24">
+        <Hero />
+        <AboutSection />
+        <LocationsSection />
+        <BMISection />
+      </main>
     </div>
   );
 }
