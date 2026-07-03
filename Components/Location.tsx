@@ -21,7 +21,7 @@ const locations = [
     name: "Ansal Plaza",
     address: "Ferozpur Road, Ludhiana",
     href: "/locations/ansalplaza",
-    image: "/ansal/DSC04439.jpg",
+    image: "/ansal/DSC04439.JPG",
   },
   {
     name: "32 Sector Main Market",

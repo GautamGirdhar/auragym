@@ -21,37 +21,37 @@ const ptSans = PT_Sans({
 
 const galleryImages = [
   {
-    src: "/ansal/DSC04440.jpg",
+    src: "/ansal/DSC04440.JPG",
     alt: "Strength training session",
     width: 800,
     height: 1000,
   },
   {
-    src: "/ansal/DSC04420.jpg",
+    src: "/ansal/DSC04420.JPG",
     alt: "Olympic lifting class",
     width: 800,
     height: 600,
   },
   {
-    src: "/ansal/DSC04389.jpg",
+    src: "/ansal/DSC04389.JPG",
     alt: "Personal coaching",
     width: 800,
     height: 700,
   },
   {
-    src: "/ansal/DSC04425.jpg",
+    src: "/ansal/DSC04425.JPG",
     alt: "Group training",
     width: 800,
     height: 1100,
   },
   {
-    src: "/ansal/DSC04405.jpg",
+    src: "/ansal/DSC04405.JPG",
     alt: "Cardio workout",
     width: 800,
     height: 900,
   },
   {
-    src: "/ansal/DSC04385.jpg",
+    src: "/ansal/DSC04385.JPG",
     alt: "Cardio workout",
     width: 800,
     height: 900,
