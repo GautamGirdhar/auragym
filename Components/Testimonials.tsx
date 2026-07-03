@@ -2,24 +2,24 @@ import { Component as BreakableCard } from "@/Components/ui/Sectioncardprops";
 
 const sections = [
   {
-    title: "About Me",
+    title: "Kartik",
     description:
-      "Creative developer with a passion for interactive UI and physics-based web experiences.",
+      "Aura Gym completely changed my fitness journey. The trainers are incredibly supportive and the atmosphere keeps me motivated every single day.",
   },
   {
-    title: "Projects",
+    title: "Simran Kaur",
     description:
-      "A collection of experiments, prototypes, and production-ready applications.",
+      "The equipment is top-notch and always well maintained. I've gained confidence, strength, and made amazing friends here.",
   },
   {
-    title: "Experience",
+    title: "Amanpreet Singh",
     description:
-      "Over 5 years of working with React, TypeScript, and modern frontend ecosystems.",
+      "I've trained at several gyms in Ludhiana, but Aura Gym stands out because of its professional coaches and positive environment.",
   },
   {
-    title: "Contact",
+    title: "Karan Malhotra",
     description:
-      "Get in touch for collaborations, freelance work, or just to say hello.",
+      "From day one I felt welcomed. Great community, excellent facilities, and visible results within a few months.",
   },
 ];
 
