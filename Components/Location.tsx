@@ -91,7 +91,9 @@ export default function LocationsSection() {
 
               {/* Content */}
               <div className="absolute inset-0 items-center flex flex-col justify-center p-8">
-                <h3 className="mt-2 text-3xl md:text-5xl font-extrabold uppercase text-white">
+                <h3
+                  className={`${barlow.className} mt-2 text-3xl md:text-5xl font-extrabold uppercase text-white`}
+                >
                   {loc.name}
                 </h3>
               </div>
