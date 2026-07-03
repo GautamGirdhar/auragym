@@ -18,21 +18,18 @@ const barlow = Barlow({
 
 const locations = [
   {
-    label: "Branch 01",
     name: "Ansal Plaza",
     address: "Ferozpur Road, Ludhiana",
     href: "/locations/ansalplaza",
-    image: "/ansalplaza.png",
+    image: "/ansal/DSC04439.jpg",
   },
   {
-    label: "Branch 02",
     name: "32 Sector Main Market",
     address: "Chandigarh Road, Ludhiana",
     href: "/locations/32sector",
-    image: "/32sector.png",
+    image: "/32sector/IMG_2396.JPG",
   },
   {
-    label: "Branch 03",
     name: "BRS Nagar",
     address: "Ludhiana",
     href: "/locations/brsnagar",
@@ -67,12 +64,19 @@ export default function LocationsSection() {
         </div>
 
         {/* Location Cards */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-          {locations.map((loc) => (
+        <div className="w-full max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+          {locations.map((loc, index) => (
             <Link
               key={loc.name}
               href={loc.href}
-              className="group relative overflow-hidden rounded-xl aspect-4/5 block"
+              className={`
+        group relative overflow-hidden rounded-xl h-100
+        ${
+          index === 2
+            ? "md:col-span-2 md:w-[48%] md:justify-self-center"
+            : "w-full"
+        }
+      `}
             >
               {/* Background image */}
               <Image
@@ -82,24 +86,15 @@ export default function LocationsSection() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-black/10 group-hover:from-black/90 transition-colors duration-300" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/60  transition-all duration-300" />
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 gap-1">
-                <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">
-                  {loc.label}
-                </span>
-                <h3 className="text-white text-xl md:text-2xl font-extrabold uppercase tracking-tight leading-tight drop-shadow-lg">
+              <div className="absolute inset-0 items-center flex flex-col justify-center p-8">
+                <h3 className="mt-2 text-3xl md:text-5xl font-extrabold uppercase text-white">
                   {loc.name}
                 </h3>
-                <p className="text-white/60 text-sm font-medium">
-                  {loc.address}
-                </p>
               </div>
-
-              {/* Red bottom border accent */}
-              <div className="absolute bottom-0 left-0 h-0.75 w-0 bg-primary group-hover:w-full transition-all duration-500 rounded-b-xl" />
             </Link>
           ))}
         </div>

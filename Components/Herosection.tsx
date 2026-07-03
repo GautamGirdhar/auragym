@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "@/Components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { Barlow } from "next/font/google";
 
 const barlow = Barlow({
@@ -17,7 +17,7 @@ export default function Hero() {
     >
       {/* Background Image via Next.js Image */}
       <Image
-        src="/auragym1.png" // Replace with your actual image path
+        src="/ansal/DSC04423.jpg" // Replace with your actual image path
         alt="Aura Gym – Premium Fitness Centre Ludhiana"
         fill
         priority
@@ -27,7 +27,7 @@ export default function Hero() {
 
       <div className="absolute inset-0" />
 
-      <div className="absolute inset-0 bg-linear-to-r from-black/50 via-black/30 to-transparent" />
+      {/* <div className="absolute inset-0 bg-linear-to-r from-black/50 via-black/30 to-transparent" /> */}
 
       <div className="relative z-10 w-full pl-4 md:pl-16 lg:pl-18 xl:pl-20">
         <div className="max-w-3xl md:min-h-[90vh] flex flex-col gap-6 bg-black/60 rounded-3xl border border-foreground/10 p-10 md:p-20 justify-center shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
@@ -53,33 +53,46 @@ export default function Hero() {
           </p>
 
           {/* CTA */}
-          <div className="mt-8">
-            <Button
-              asChild
-              className="
-      h-16
-      rounded-full
-      bg-primary
-      px-10
-      text-xl
-      font-semibold
-      text-primary-foreground
-      shadow-xl
-      transition-all
-      duration-300
-      hover:scale-105
-      hover:bg-primary
-      hover:shadow-2xl
-    "
+          {/* CTA */}
+          <div className="mt-10">
+            <Link
+              href="/free-intro"
+              className="group inline-flex items-center overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:scale-105 transition-all duration-300"
             >
-              <a href="/free-intro" className="flex items-center gap-4">
-                Book a Free Intro
-                <ArrowRight
-                  className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+              {/* Left Red Part */}
+              <span
+                className="
+        flex h-16 items-center justify-center
+        bg-primary px-10
+        text-lg font-bold uppercase tracking-[0.18em]
+        text-white
+        transition-all duration-300
+        group-hover:px-12
+      "
+              >
+                Join Aura
+              </span>
+
+              {/* Right White Part */}
+              <span
+                className="
+        flex h-16 w-16 items-center justify-center
+        bg-white
+        transition-colors duration-300
+        group-hover:bg-zinc-100
+      "
+              >
+                <ArrowUpRight
+                  className="
+          h-7 w-7 text-black
+          transition-transform duration-300
+          group-hover:translate-x-1
+          group-hover:-translate-y-1
+        "
                   strokeWidth={2.5}
                 />
-              </a>
-            </Button>
+              </span>
+            </Link>
           </div>
         </div>
       </div>

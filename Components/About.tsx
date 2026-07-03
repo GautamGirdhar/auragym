@@ -21,25 +21,41 @@ const ptSans = PT_Sans({
 
 const galleryImages = [
   {
-    src: "/auragym1.png",
+    src: "/ansal/DSC04440.jpg",
     alt: "Strength training session",
     width: 800,
     height: 1000,
   },
   {
-    src: "/aura-gym-6.jpg",
+    src: "/ansal/DSC04420.jpg",
     alt: "Olympic lifting class",
     width: 800,
     height: 600,
   },
-  { src: "/aura-gym-4.png", alt: "Group training", width: 800, height: 1100 },
   {
-    src: "/aura-gym-5.jpg",
+    src: "/ansal/DSC04389.jpg",
     alt: "Personal coaching",
     width: 800,
     height: 700,
   },
-  { src: "/aura-gym-2.png", alt: "Cardio workout", width: 800, height: 900 },
+  {
+    src: "/ansal/DSC04425.jpg",
+    alt: "Group training",
+    width: 800,
+    height: 1100,
+  },
+  {
+    src: "/ansal/DSC04405.jpg",
+    alt: "Cardio workout",
+    width: 800,
+    height: 900,
+  },
+  {
+    src: "/ansal/DSC04385.jpg",
+    alt: "Cardio workout",
+    width: 800,
+    height: 900,
+  },
 ];
 
 export default function AboutSection() {

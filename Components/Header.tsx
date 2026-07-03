@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronDown, Menu, X, Dumbbell } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -130,11 +130,25 @@ export default function Header() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <Button
-            className={`${barlow.className} rounded-full bg-primary px-15 py-7 text-lg font-medium tracking-wide text-foreground hover:bg-primary`}
+          <Link
+            href="/free-intro"
+            className="group inline-flex items-center overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Visiting? Drop In
-          </Button>
+            {/* Left Part */}
+            <span
+              className={`${barlow.className} bg-primary px-8 h-14 flex items-center justify-center text-white uppercase tracking-[0.15em] font-bold text-sm transition-all duration-300 group-hover:px-10`}
+            >
+              Join Aura
+            </span>
+
+            {/* Right Part */}
+            <span className="bg-white w-14 h-14 flex items-center justify-center transition-all duration-300 group-hover:bg-zinc-100">
+              <ArrowUpRight
+                className="w-6 h-6 text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                strokeWidth={2.5}
+              />
+            </span>
+          </Link>
         </div>
 
         {/* Mobile toggle */}

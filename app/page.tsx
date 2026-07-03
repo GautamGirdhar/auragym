@@ -3,6 +3,7 @@ import BMISection from "@/Components/Bmisection";
 import Header from "@/Components/Header";
 import Hero from "@/Components/Herosection";
 import LocationsSection from "@/Components/Location";
+import DemoDefault from "@/Components/Testimonials";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <AboutSection />
         <LocationsSection />
         <BMISection />
+        <DemoDefault />
       </main>
     </div>
   );
