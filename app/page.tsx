@@ -1,5 +1,6 @@
 import AboutSection from "@/Components/About";
 import BMISection from "@/Components/Bmisection";
+import CTASection from "@/Components/CTAButton";
 import Header from "@/Components/Header";
 import Hero from "@/Components/Herosection";
 import LocationsSection from "@/Components/Location";
@@ -15,6 +16,7 @@ export default function Home() {
         <LocationsSection />
         <BMISection />
         <DemoDefault />
+        <CTASection />
       </main>
     </div>
   );

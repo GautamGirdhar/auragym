@@ -17,7 +17,7 @@ export default function Hero() {
     >
       {/* Background Image via Next.js Image */}
       <Image
-        src="/BRSnagar.png" // Replace with your actual image path
+        src="/ansal/DSC04423.jpg" // Replace with your actual image path
         alt="Aura Gym – Premium Fitness Centre Ludhiana"
         fill
         priority
