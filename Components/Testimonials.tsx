@@ -1,4 +1,15 @@
 import { Component as BreakableCard } from "@/Components/ui/Sectioncardprops";
+import { PT_Sans, Barlow } from "next/font/google";
+
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+});
 
 const sections = [
   {
@@ -25,31 +36,58 @@ const sections = [
 
 export default function DemoDefault() {
   return (
-    <div className="relative w-full min-h-screen bg-background overflow-hidden font-sans flex items-center justify-center p-8">
-      {/* Background elements */}
+    <section className="relative w-full bg-background overflow-hidden py-24 px-6 md:px-12 lg:px-20">
+      {/* Background Grid */}
       <div
-        className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none"
+        className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 1px 1px, #000 1px, transparent 0)",
+            "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)",
           backgroundSize: "40px 40px",
         }}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl z-10">
-        {sections.map((section, index) => (
-          <div key={index} className="h-64 w-full">
-            <BreakableCard
-              title={section.title}
-              description={section.description}
-            />
-          </div>
-        ))}
-      </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <p
+            className={`${barlow.className} text-primary uppercase tracking-[0.35em] font-semibold text-sm md:text-base`}
+          >
+            SATISFIED CUSTOMERS
+          </p>
 
-      <div className="absolute bottom-8 left-0 w-full text-center text-foreground font-mono text-xs uppercase tracking-widest pointer-events-none">
-        Shake cards to break them free
+          <h2
+            className={`${barlow.className} mt-3 text-4xl md:text-6xl font-extrabold uppercase text-foreground`}
+          >
+            What Our Members Say
+          </h2>
+
+          <p
+            className={`${ptSans.className} mt-6 max-w-5xl mx-auto text-foreground/90 text-lg leading-relaxed`}
+          >
+            Thousands of members have trusted Aura Gym to transform their
+            fitness journey. Here&apos;s what a few of them have to say about
+            their experience with our trainers, community, and facilities.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {sections.map((section, index) => (
+            <div key={index} className="h-64">
+              <BreakableCard
+                title={section.title}
+                description={section.description}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Text */}
+        <p className="mt-16 text-center text-foreground/60 uppercase tracking-[0.3em] text-xs">
+          Real Transformations • Real Results • Real Community
+        </p>
       </div>
-    </div>
+    </section>
   );
 }

@@ -192,7 +192,6 @@ export default function AboutSection() {
               width={galleryImages[lightboxIndex].width}
               height={galleryImages[lightboxIndex].height}
               className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
-              quality={95}
             />
           </div>
 

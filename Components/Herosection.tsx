@@ -21,7 +21,6 @@ export default function Hero() {
         alt="Aura Gym – Premium Fitness Centre Ludhiana"
         fill
         priority
-        quality={90}
         className="object-cover object-center"
       />
 

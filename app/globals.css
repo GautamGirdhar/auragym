@@ -51,6 +51,7 @@
   --color-hero: var(--hero);
   --color-header: var(--header-bg);
   --color-footer: var(--footer-bg);
+  --animate-hover-wiggle: hover-wiggle 0.8s ease-in-out infinite;
 }
 
 :root {
@@ -113,6 +114,30 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes hover-wiggle {
+  0% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  15% {
+    transform: rotate(-2deg) translate(-2px, 0px);
+  }
+  30% {
+    transform: rotate(2deg) translate(2px, 0px);
+  }
+  45% {
+    transform: rotate(-2deg) translate(-1px, 0px);
+  }
+  60% {
+    transform: rotate(2deg) translate(1px, 0px);
+  }
+  75% {
+    transform: rotate(-1deg) translate(-1px, 0px);
+  }
+  100% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
 }
 
 @layer base {
