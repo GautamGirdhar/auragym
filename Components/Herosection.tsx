@@ -60,12 +60,12 @@ export default function Hero() {
               {/* Left Red Part */}
               <span
                 className="
-        flex h-16 items-center justify-center
-        bg-primary px-10
+        flex h-14 items-center justify-center
+        bg-primary px-8
         text-lg font-bold uppercase tracking-[0.18em]
         text-white
         transition-all duration-300
-        group-hover:px-12
+        group-hover:px-10
       "
               >
                 Join Aura
@@ -74,7 +74,7 @@ export default function Hero() {
               {/* Right White Part */}
               <span
                 className="
-        flex h-16 w-16 items-center justify-center
+        flex h-14 w-14 items-center justify-center
         bg-white
         transition-colors duration-300
         group-hover:bg-zinc-100

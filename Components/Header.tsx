@@ -219,13 +219,13 @@ export default function Header() {
           >
             {/* Left Part */}
             <span
-              className={`${barlow.className} bg-primary px-8 h-14 flex items-center justify-center text-white uppercase tracking-[0.15em] font-bold text-sm transition-all duration-300 group-hover:px-10`}
+              className={`${barlow.className} bg-primary px-6 h-12 flex items-center justify-center text-white uppercase tracking-[0.15em] font-bold text-sm transition-all duration-300 group-hover:px-10`}
             >
               Join Aura
             </span>
 
             {/* Right Part */}
-            <span className="bg-foreground w-14 h-14 flex items-center justify-center transition-all duration-300 group-hover:bg-zinc-100">
+            <span className="bg-foreground w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:bg-zinc-100">
               <ArrowUpRight
                 className="w-6 h-6 text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                 strokeWidth={2.5}

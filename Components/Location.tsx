@@ -69,7 +69,7 @@ export default function LocationsSection() {
             <Link
               key={loc.name}
               href={loc.href}
-              className="group relative overflow-hidden rounded-2xl h-[450px]"
+              className="group relative overflow-hidden rounded-2xl h-112.5"
             >
               {/* Background image */}
               <Image
