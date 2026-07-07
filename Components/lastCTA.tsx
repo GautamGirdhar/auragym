@@ -13,7 +13,7 @@ const barlow = Barlow({
 
 export default function CTASection() {
   return (
-    <section className="relative w-full h-130 flex items-center overflow-hidden">
+    <section className="relative w-full min-h-130 md:h-130 flex items-center overflow-hidden">
       {/* Background Image */}
       <Image
         src="/ansal/DSC04449.JPG" // replace with your actual image
@@ -21,12 +21,12 @@ export default function CTASection() {
         fill
         priority
         quality={90}
-        className="object-cover object-center"
+        className="object-cover md:block hidden object-center"
       />
 
       {/* Right-side content panel */}
       <div className="relative z-10 w-full flex justify-end p-6 md:p-12 lg:p-20">
-        <div className="w-full max-w-lg bg-black/65 backdrop-blur-md rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <div className="w-full max-w-3xl bg-black/65 backdrop-blur-md rounded-2xl p-6 md:p-8 flex flex-col gap-4">
           {/* Heading */}
           <h2
             className={`${barlow.className} text-4xl md:text-5xl font-extrabold uppercase leading-tight text-white`}

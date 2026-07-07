@@ -20,7 +20,7 @@ const ptSans = PT_Sans({
 
 const galleryImages = [
   {
-    src: "/ansal/DSC04440.JPG",
+    src: "/ansal/DSC04391.JPG",
     alt: "Strength training session",
     width: 800,
     height: 1000,

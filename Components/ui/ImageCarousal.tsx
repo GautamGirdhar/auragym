@@ -85,7 +85,7 @@ export default function ImageCarousel({ images }: Props) {
                   alt={image.alt}
                   fill
                   sizes="100vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>

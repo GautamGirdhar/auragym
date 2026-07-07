@@ -21,17 +21,17 @@ const locations = [
   {
     name: "Ansal Plaza",
     address: "Ansal Plaza, Ferozpur Road, Ludhiana, Punjab",
-    phone: "+91 98765 43210",
+    phone: "+91 90147 00005",
   },
   {
     name: "32 Sector",
     address: "32 Sector Main Market, Chandigarh Road, Ludhiana, Punjab",
-    phone: "+91 98765 43211",
+    phone: "+91 93367 60005",
   },
   {
     name: "BRS Nagar",
     address: "BRS Nagar, Ludhiana, Punjab",
-    phone: "+91 98765 43212",
+    phone: "+91 90147 00005",
   },
 ];
 
@@ -45,9 +45,8 @@ const quickLinks = [
 ];
 
 const gymHours = [
-  { day: "Mon – Fri", hours: "5:00 am – 10:00 pm" },
-  { day: "Saturday", hours: "6:00 am – 8:00 pm" },
-  { day: "Sunday", hours: "7:00 am – 2:00 pm" },
+  { day: "Mon – Sat", hours: "5:30 am – 10:30 pm" },
+  { day: "Sunday", hours: "7:00 am – 1:00 pm" },
 ];
 
 export default function Footer() {

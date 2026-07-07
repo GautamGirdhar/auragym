@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { usePathname } from "next/navigation";
@@ -29,7 +29,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Free Intro", href: "/free-intro" },
+  { label: "Free Trial", href: "/free-intro" },
   {
     label: "Locations",
     href: "/locations",
@@ -55,6 +55,18 @@ export default function Header() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const openMenu = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenDropdown(label);
+  };
+
+  const closeMenu = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+  };
 
   return (
     <header className="w-full bg-header fixed top-0 left-0 z-50">
@@ -79,12 +91,13 @@ export default function Header() {
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={() => link.dropdown && setOpenDropdown(link.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => link.dropdown && openMenu(link.label)}
+              onMouseLeave={closeMenu}
             >
               {link.dropdown ? (
                 <>
-                  <button
+                  <Link
+                    href={link.href}
                     className={`group relative flex items-center gap-2 pb-2 text-xl font-extrabold transition-all duration-300 ${
                       pathname.startsWith(link.href)
                         ? "text-primary"
@@ -111,7 +124,7 @@ export default function Header() {
     ${pathname.startsWith(link.href) ? "w-full" : "group-hover:w-full"}
   `}
                     />
-                  </button>
+                  </Link>
 
                   {openDropdown === link.label && (
                     <div
@@ -125,6 +138,8 @@ export default function Header() {
       overflow-hidden
       z-50
     "
+                      onMouseEnter={() => openMenu(link.label)}
+                      onMouseLeave={closeMenu}
                     >
                       {/* Red Top Border */}
                       <div className="h-1 w-full bg-primary" />
@@ -153,21 +168,6 @@ export default function Header() {
         "
                         >
                           {item.label}
-
-                          {/* Hover Underline */}
-                          <span
-                            className="
-            absolute
-            bottom-0
-            left-0
-            h-0.75
-            w-0
-            bg-primary
-            transition-all
-            duration-300
-            group-hover:w-full
-          "
-                          />
                         </Link>
                       ))}
                     </div>
@@ -254,7 +254,7 @@ export default function Header() {
           mobileOpen ? "max-h-175 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-foreground/10 bg-background/60 backdrop-blur-3xl px-6 py-6">
+        <div className="border-t border-foreground/10 bg-header backdrop-blur-3xl px-6 py-6">
           <nav className="flex flex-col">
             {navLinks.map((link) => (
               <div

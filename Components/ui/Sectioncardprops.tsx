@@ -297,15 +297,16 @@ const useBreakableCard = (onBreak?: () => void) => {
   useEffect(() => {
     if (!isDragging) return;
     const onMove = (e: MouseEvent | TouchEvent) => {
+      if ("touches" in e) e.preventDefault();
       const clientX =
         "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
       const clientY =
         "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
       handleDragMove(clientX, clientY);
     };
+    window.addEventListener("touchmove", onMove, { passive: false });
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", handleDragEnd);
-    window.addEventListener("touchmove", onMove, { passive: false });
     window.addEventListener("touchend", handleDragEnd);
     return () => {
       window.removeEventListener("mousemove", onMove);

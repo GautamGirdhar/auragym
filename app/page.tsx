@@ -1,6 +1,6 @@
 import AboutSection from "@/Components/About";
 import BMISection from "@/Components/Bmisection";
-import CTASection from "@/Components/CTAButton";
+import CTASection from "@/Components/lastCTA";
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Hero from "@/Components/Herosection";

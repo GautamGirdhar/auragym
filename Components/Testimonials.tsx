@@ -36,7 +36,7 @@ const sections = [
 
 export default function DemoDefault() {
   return (
-    <section className="relative w-full bg-background overflow-hidden pt-12 px-6 md:px-12 lg:px-20">
+    <section className="relative w-full bg-black/20 overflow-hidden p-12 px-6 md:px-12 lg:px-20">
       {/* Background Grid */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
