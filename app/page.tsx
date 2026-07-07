@@ -5,6 +5,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Hero from "@/Components/Herosection";
 import LocationsSection from "@/Components/Location";
+import ScheduleSection from "@/Components/Schedule";
 import DemoDefault from "@/Components/Testimonials";
 
 export default function Home() {
@@ -15,8 +16,9 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <LocationsSection />
-        <BMISection />
+        {/* <BMISection /> */}
         <DemoDefault />
+        <ScheduleSection />
         <CTASection />
       </main>
       <Footer />

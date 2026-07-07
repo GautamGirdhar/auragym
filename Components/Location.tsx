@@ -64,19 +64,12 @@ export default function LocationsSection() {
         </div>
 
         {/* Location Cards */}
-        <div className="w-full max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {locations.map((loc, index) => (
             <Link
               key={loc.name}
               href={loc.href}
-              className={`
-        group relative overflow-hidden rounded-xl h-100
-        ${
-          index === 2
-            ? "md:col-span-2 md:w-[48%] md:justify-self-center"
-            : "w-full"
-        }
-      `}
+              className="group relative overflow-hidden rounded-2xl h-[450px]"
             >
               {/* Background image */}
               <Image

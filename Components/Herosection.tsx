@@ -28,7 +28,7 @@ export default function Hero() {
 
       {/* <div className="absolute inset-0 bg-linear-to-r from-black/50 via-black/30 to-transparent" /> */}
 
-      <div className="relative z-10 w-full pl-4 md:pl-16 lg:pl-18 xl:pl-20">
+      <div className="relative z-10 w-full pl-4 pr-4 md:pl-16 lg:pl-18 xl:pl-20">
         <div className="max-w-3xl md:min-h-[90vh] flex flex-col gap-6 bg-black/60 rounded-3xl border border-foreground/10 p-10 md:p-20 justify-center shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
           {/* Eyebrow */}
           <p

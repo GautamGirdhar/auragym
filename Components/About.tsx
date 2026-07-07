@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Barlow } from "next/font/google";
 import { PT_Sans } from "next/font/google";
+import ImageCarousel from "./ui/ImageCarousal";
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -132,87 +131,9 @@ export default function AboutSection() {
           </div>
 
           {/* ── Right: Pinterest-style Masonry Gallery ── */}
-          <div className="columns-3 gap-3 space-y-3">
-            {galleryImages.map((img, i) => (
-              <div
-                key={i}
-                className="break-inside-avoid cursor-pointer rounded-xl overflow-hidden group relative"
-                onClick={() => setLightboxIndex(i)}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={img.width}
-                  height={img.height}
-                  className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
-                />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 rounded-xl" />
-              </div>
-            ))}
-          </div>
+          <ImageCarousel images={galleryImages} />
         </div>
       </section>
-
-      {/* ── Lightbox ── */}
-      {lightboxIndex !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 backdrop-blur-sm"
-          onClick={closeLightbox}
-        >
-          {/* Close */}
-          <button
-            onClick={closeLightbox}
-            className="absolute top-5 right-5 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-5 h-5" />
-          </button>
-
-          {/* Prev */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goPrev();
-            }}
-            className="absolute left-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          {/* Lightbox Image — full natural size, constrained to viewport */}
-          <div
-            className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={galleryImages[lightboxIndex].src}
-              alt={galleryImages[lightboxIndex].alt}
-              width={galleryImages[lightboxIndex].width}
-              height={galleryImages[lightboxIndex].height}
-              className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
-            />
-          </div>
-
-          {/* Next */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goNext();
-            }}
-            className="absolute right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Counter */}
-          <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/50 text-sm tabular-nums">
-            {lightboxIndex + 1} / {galleryImages.length}
-          </p>
-        </div>
-      )}
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowUpRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -54,14 +54,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   return (
     <header className="w-full bg-header fixed top-0 left-0 z-50">
-      <div className="mx-auto flex max-w-full items-center justify-between px-8 py-8 md:px-24 md:py-10">
+      <div className="mx-auto flex max-w-full items-center justify-between px-8 py-5 md:px-24 md:py-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/auralogo.png" // public folder me rakha hua logo
+            src="/auralogo2.jpg" // public folder me rakha hua logo
             alt="Aura Gym Logo"
             width={170}
             height={60}
@@ -84,7 +85,7 @@ export default function Header() {
               {link.dropdown ? (
                 <>
                   <button
-                    className={`flex items-center gap-1 text-xl font-medium transition-colors ${
+                    className={`group relative flex items-center gap-2 pb-2 text-xl font-extrabold transition-all duration-300 ${
                       pathname.startsWith(link.href)
                         ? "text-primary"
                         : "text-foreground hover:text-primary"
@@ -92,21 +93,81 @@ export default function Header() {
                   >
                     {link.label}
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
+                      className={`h-4 w-4 font-extrabold text-primary transition-transform duration-200 ${
                         openDropdown === link.label ? "rotate-180" : ""
                       }`}
+                    />
+
+                    <span
+                      className={`
+    absolute
+    bottom-0
+    left-0
+    h-0.75
+    w-0
+    bg-primary
+    transition-all
+    duration-300
+    ${pathname.startsWith(link.href) ? "w-full" : "group-hover:w-full"}
+  `}
                     />
                   </button>
 
                   {openDropdown === link.label && (
-                    <div className="absolute left-0 top-full 0 w-50 rounded-xl border border-border bg-card p-2 shadow-2xl">
+                    <div
+                      className="
+      absolute left-0 top-full mt-5
+      w-64
+      bg-[#171717]/95
+      backdrop-blur-xl
+      border border-white/10
+      shadow-[0_20px_50px_rgba(0,0,0,0.45)]
+      overflow-hidden
+      z-50
+    "
+                    >
+                      {/* Red Top Border */}
+                      <div className="h-1 w-full bg-primary" />
+
                       {link.dropdown.map((item) => (
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block rounded-lg px-4 py-3 text-xl text-foreground transition-all hover:bg-primary/10 hover:text-primary"
+                          className="
+          group
+          relative
+          flex
+          items-center
+          px-6
+          py-5
+          text-lg
+          font-semibold
+          uppercase
+          tracking-[0.15em]
+          text-white/90
+          border-b
+          border-white/5
+          transition-all
+          duration-300
+          hover:text-white
+        "
                         >
                           {item.label}
+
+                          {/* Hover Underline */}
+                          <span
+                            className="
+            absolute
+            bottom-0
+            left-0
+            h-0.75
+            w-0
+            bg-primary
+            transition-all
+            duration-300
+            group-hover:w-full
+          "
+                          />
                         </Link>
                       ))}
                     </div>
@@ -115,13 +176,35 @@ export default function Header() {
               ) : (
                 <Link
                   href={link.href}
-                  className={`text-xl font-medium transition-colors ${
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-foreground hover:text-primary"
-                  }`}
+                  className={`
+    group
+    relative
+    pb-2
+    text-xl
+    font-extrabold
+    transition-all
+    duration-300
+    ${
+      pathname === link.href
+        ? "text-primary"
+        : "text-foreground hover:text-primary"
+    }
+  `}
                 >
                   {link.label}
+
+                  <span
+                    className={`
+      absolute
+      bottom-0
+      left-0
+      h-0.75
+      bg-primary
+      transition-all
+      duration-300
+      ${pathname === link.href ? "w-full" : "w-0 group-hover:w-full"}
+    `}
+                  />
                 </Link>
               )}
             </div>
@@ -142,7 +225,7 @@ export default function Header() {
             </span>
 
             {/* Right Part */}
-            <span className="bg-white w-14 h-14 flex items-center justify-center transition-all duration-300 group-hover:bg-zinc-100">
+            <span className="bg-foreground w-14 h-14 flex items-center justify-center transition-all duration-300 group-hover:bg-zinc-100">
               <ArrowUpRight
                 className="w-6 h-6 text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                 strokeWidth={2.5}
@@ -165,44 +248,107 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      {mobileOpen && (
-        <div className="lg:hidden border-t border-border bg-background px-6 py-4">
-          <nav className="flex flex-col gap-4">
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-500 ${
+          mobileOpen ? "max-h-175 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-foreground/10 bg-background/60 backdrop-blur-3xl px-6 py-6">
+          <nav className="flex flex-col">
             {navLinks.map((link) => (
-              <div key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block text-lg font-medium ${
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-foreground hover:text-primary"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-                {link.dropdown && (
-                  <div className="mt-2 ml-3 flex flex-col gap-2 border-l border-border pl-3">
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="text-xl text-muted-foreground hover:text-primary"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
+              <div
+                key={link.label}
+                className="border-b border-white/10 last:border-none"
+              >
+                {link.dropdown ? (
+                  <>
+                    <button
+                      onClick={() =>
+                        setMobileDropdown(
+                          mobileDropdown === link.label ? null : link.label,
+                        )
+                      }
+                      className={`w-full flex items-center justify-between py-5 transition-colors ${
+                        pathname.startsWith(link.href)
+                          ? "text-primary"
+                          : "text-white"
+                      }`}
+                    >
+                      <span className="text-lg font-semibold">
+                        {link.label}
+                      </span>
+
+                      {mobileDropdown === link.label ? (
+                        <Minus className="w-5 h-5 text-primary" />
+                      ) : (
+                        <Plus className="w-5 h-5 text-white/60" />
+                      )}
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ${
+                        mobileDropdown === link.label
+                          ? "max-h-60 pb-4"
+                          : "max-h-0"
+                      }`}
+                    >
+                      {link.dropdown.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={() => {
+                            setMobileOpen(false);
+                            setMobileDropdown(null);
+                          }}
+                          className="block ml-4 border-l border-primary/40 pl-4 py-3 text-base text-white/70 hover:text-primary transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block py-5 text-lg font-semibold transition-colors ${
+                      pathname === link.href
+                        ? "text-primary"
+                        : "text-white hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 )}
               </div>
             ))}
-            <Button className="mt-2 rounded-full bg-primary text-sm font-semibold text-foreground hover:bg-primary/90">
-              Visiting? Drop In
-            </Button>
+
+            {/* CTA */}
+
+            <div className="mt-8">
+              <Link
+                href="/free-intro"
+                onClick={() => setMobileOpen(false)}
+                className="group flex items-center overflow-hidden rounded-xl shadow-lg"
+              >
+                <span
+                  className={`${barlow.className} flex-1 bg-primary py-4 text-center text-white uppercase tracking-[0.18em] font-bold`}
+                >
+                  Join Aura
+                </span>
+
+                <span className="bg-white h-14 w-14 flex items-center justify-center">
+                  <ArrowUpRight
+                    className="text-black transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                    strokeWidth={2.5}
+                  />
+                </span>
+              </Link>
+            </div>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }

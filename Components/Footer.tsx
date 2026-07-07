@@ -57,7 +57,7 @@ export default function Footer() {
       <div className="max-w-full mx-auto px-8 lg:px-20 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
         <Link href="/" className="w-fit">
           <Image
-            src="/auralogo.png"
+            src="/auralogo2.jpg"
             alt="Aura Gym Logo"
             width={240}
             height={85}

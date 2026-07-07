@@ -149,6 +149,11 @@ const useBreakableCard = (onBreak?: () => void) => {
   const handleDragStart = useCallback(
     (e: React.MouseEvent | React.TouchEvent) => {
       if (isBrokenRef.current) return;
+
+      if ("touches" in e) {
+        e.preventDefault();
+      }
+
       setIsDragging(true);
       const clientX =
         "touches" in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
