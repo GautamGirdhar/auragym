@@ -7,6 +7,7 @@ import Hero from "@/Components/Herosection";
 import LocationsSection from "@/Components/Location";
 import ScheduleSection from "@/Components/Schedule";
 import DemoDefault from "@/Components/Testimonials";
+import ContactSection from "@/Components/ContactForm";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <LocationsSection />
         {/* <BMISection /> */}
         <DemoDefault />
+        <ContactSection />
         <ScheduleSection />
         <CTASection />
       </main>

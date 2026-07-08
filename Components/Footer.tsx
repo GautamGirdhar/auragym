@@ -37,7 +37,7 @@ const locations = [
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Free Trial", href: "/free-intro" },
+  { label: "Free Trial", href: "/contact" },
   { label: "Locations", href: "/locations" },
   { label: "Membership Plans", href: "/gym-info/membership" },
   { label: "Contact Us", href: "/contact" },

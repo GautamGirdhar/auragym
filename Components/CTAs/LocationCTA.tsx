@@ -53,7 +53,7 @@ export default function LocationHeroCTA() {
           {/* CTA Button */}
           <div className="mt-10">
             <Link
-              href="/free-intro"
+              href="/contact"
               className="group inline-flex items-center overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:scale-105 transition-all duration-300"
             >
               {/* Left Red Part */}

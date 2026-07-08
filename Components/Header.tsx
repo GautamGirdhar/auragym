@@ -29,7 +29,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Free Trial", href: "/free-intro" },
+  { label: "Free Trial", href: "/contact" },
   {
     label: "Locations",
     href: "/locations",
@@ -41,10 +41,10 @@ const navLinks: NavLink[] = [
   },
   {
     label: "Gym Info",
-    href: "/gym-info",
+    href: "/gyminfo",
     dropdown: [
-      { label: "Membership Plans", href: "/gym-info/membership" },
-      { label: "About", href: "/gym-info/faqs" },
+      { label: "Schedule", href: "/gyminfo/schedule" },
+      { label: "About", href: "/gyminfo/about" },
     ],
   },
   { label: "Contact Us", href: "/contact" },
@@ -214,7 +214,7 @@ export default function Header() {
         {/* CTA */}
         <div className="hidden lg:block">
           <Link
-            href="/free-intro"
+            href="/contact"
             className="group inline-flex items-center overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {/* Left Part */}
@@ -328,7 +328,7 @@ export default function Header() {
 
             <div className="mt-8">
               <Link
-                href="/free-intro"
+                href="/contact"
                 onClick={() => setMobileOpen(false)}
                 className="group flex items-center overflow-hidden rounded-xl shadow-lg"
               >
