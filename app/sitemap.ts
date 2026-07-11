@@ -7,7 +7,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://auragyms.com/about",
+      url: "https://auragyms.com/gyminfo/about",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/gyminfo/schedule",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/gyminfo",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/locations",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/locations/32sector",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/locations/ansalplaza",
+      priority: 0.8,
+    },
+    {
+      url: "https://auragyms.com/locations/brsnagar",
       priority: 0.8,
     },
     {
