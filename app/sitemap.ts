@@ -3,15 +3,15 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://auragym.in",
+      url: "https://auragyms.com",
       priority: 1,
     },
     {
-      url: "https://auragym.in/about",
+      url: "https://auragyms.com/about",
       priority: 0.8,
     },
     {
-      url: "https://auragym.in/contact",
+      url: "https://auragyms.com/contact",
       priority: 0.8,
     },
   ];
