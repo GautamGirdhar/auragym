@@ -4,6 +4,30 @@ import Header from "@/Components/Header";
 import CTASection from "@/Components/lastCTA";
 import ScheduleSection from "@/Components/Schedule";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Gym in Ansal Plaza Ludhiana | Aura Gym",
+  description:
+    "Join Aura Gym Ansal Plaza for personal training, strength training, weight loss programs and premium fitness facilities in Ludhiana.",
+
+  keywords: [
+    "best gym in ludhiana",
+    "gym in ansal plaza ludhiana",
+    "fitness centre ludhiana",
+    "personal training ludhiana",
+    "strength training ludhiana",
+    "aura gym ludhiana",
+  ],
+
+  openGraph: {
+    title: "Aura Gym Ansal Plaza",
+    description:
+      "Premium gym in Ludhiana with personal training and modern equipment.",
+    images: ["/og-image.jpg"],
+  },
+};
+
 export default function LocationsPage() {
   return (
     <>

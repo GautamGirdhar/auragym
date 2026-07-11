@@ -41,7 +41,11 @@ export default function Hero() {
           <h1
             className={`text-5xl md:text-7xl font-extrabold uppercase tracking-tight text-white leading-none`}
           >
-            Aura Gym
+            Best Gym In
+            <br />
+            <span className="text-primary">Ludhiana, Punjab</span>
+            <br />
+            <span className="text-white">| Aura Gym</span>
           </h1>
 
           {/* Tagline */}
