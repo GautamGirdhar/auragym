@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -55,24 +56,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`h-full antialiased`}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HealthClub",
-            name: "Aura Gym",
-            url: "https://auragym.in",
-            telephone: "+91 90147 00005",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Ludhiana",
-              addressRegion: "Punjab",
-              addressCountry: "IN",
-            },
-          }),
-        }}
-      />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HealthClub",
+              name: "Aura Gym",
+              url: "https://auragym.in",
+              telephone: "+91 90147 00005",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Ludhiana",
+                addressRegion: "Punjab",
+                addressCountry: "IN",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
