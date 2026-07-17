@@ -4,6 +4,7 @@ export interface Blog {
   slug: string;
   excerpt: string;
   content: string;
-  image_url: string;
+  author: string;
+  cover_image: string;
   created_at: string;
 }
